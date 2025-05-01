@@ -23,20 +23,6 @@ function DashboardPage() {
     }
   };
 
-  // const fetchUpcomingDrives = async () => {
-  //   try {
-  //     const res = await axios.get('/drives/upcoming'); // Fetch upcoming drives only
-  //     setDrives(res.data); // Set the state with the upcoming drives
-  //   } catch (error) {
-  //     console.error('Error fetching upcoming drives:', error);
-  //   }
-  // };
-  
-  // useEffect(() => {
-  //   fetchUpcomingDrives();
-  // }, []);
-  
-
   const fetchUpcomingDrives = async () => {
     try {
       const response = await axios.get('http://localhost:8000/api/drives/upcoming');
@@ -49,6 +35,15 @@ function DashboardPage() {
   
 
   return (
+
+    <div
+    style={{
+      backgroundImage: `url(${process.env.PUBLIC_URL}/images/Dashboard.jpeg)`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      minHeight: '100vh',
+    }}
+  >
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Dashboard</h1>
 
@@ -83,8 +78,9 @@ function DashboardPage() {
           </ul>
         )}
       </div>
-    </div>
-  );
+      </div>
+      </div>
+    );
 }
 
 export default DashboardPage;

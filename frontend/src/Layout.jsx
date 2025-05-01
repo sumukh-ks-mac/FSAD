@@ -1,16 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from './AuthContext';  // Import AuthContext to use logout
-import { useNavigate } from 'react-router-dom';  // For navigating after logout
-import { Outlet } from 'react-router-dom';  // Import Outlet to render child routes
-
+import { useAuth } from './AuthContext';
+import { useNavigate } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 const Layout = () => {
-  const { logout } = useAuth();  // Get logout function from AuthContext
-  const navigate = useNavigate();  // Hook to navigate to the login page after logout
+  const { logout } = useAuth();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    logout();  // Call the logout function
-    navigate('/login');  // Redirect to login page after logging out
+    logout();
+    navigate('/login');
   };
 
   return (

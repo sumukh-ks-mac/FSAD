@@ -1,6 +1,6 @@
-// src/pages/StudentPage.jsx
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+
 
 function StudentPage() {
   const [students, setStudents] = useState([]);
@@ -41,13 +41,23 @@ function StudentPage() {
       setIsVaccinated(false);
       setVaccineName('');        
       setDateOfVaccination('');  
-      fetchStudents(); // refresh list
+      fetchStudents();
     } catch (error) {
       console.error('Failed to add student:', error);
     }
   };
 
   return (
+
+    <div
+      style={{
+        backgroundImage: `url(${process.env.PUBLIC_URL}/images/Stu.jpg)`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        minHeight: '100vh',
+      }}
+    >
+
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Student Management</h1>
 
@@ -122,6 +132,7 @@ function StudentPage() {
         </tbody>
       </table>
     </div>
+  </div>
   );
 }
 

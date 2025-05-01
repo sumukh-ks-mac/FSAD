@@ -1,8 +1,5 @@
 const Student = require('../models/Student');
 
-// @desc    Get student stats
-// @route   GET /api/students/stats
-// @access  Public
 const getStudentStats = async (req, res) => {
   try {
     const totalStudents = await Student.countDocuments();

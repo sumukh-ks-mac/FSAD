@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { CSVLink } from 'react-csv'; // For CSV export
+import { CSVLink } from 'react-csv';
+
 
 const ReportPage = () => {
   const [students, setStudents] = useState([]);
   const [filterVaccine, setFilterVaccine] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const studentsPerPage = 5; // ✅ Show 5 students per page
+  const studentsPerPage = 5;
 
   useEffect(() => {
     fetchStudents();
@@ -19,7 +20,7 @@ const ReportPage = () => {
 
   const handleFilterChange = (e) => {
     setFilterVaccine(e.target.value);
-    setCurrentPage(1); // Reset to page 1 on filter change
+    setCurrentPage(1);
   };
 
   // Filter students by vaccine name
@@ -35,6 +36,14 @@ const ReportPage = () => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
+    <div
+    style={{
+      backgroundImage: `url(${process.env.PUBLIC_URL}/images/Report.jpg)`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      minHeight: '100vh',
+    }}
+  >
     <div className="p-6">
       <h2 className="text-2xl font-bold mb-4">Vaccination Report</h2>
 
@@ -85,6 +94,7 @@ const ReportPage = () => {
           </button>
         ))}
       </div>
+    </div>
     </div>
   );
 };

@@ -13,8 +13,8 @@ const Drives = () => {
 
   const fetchDrives = async () => {
     try {
-      const res = await axios.get('/drives'); // Fetch all drives
-      setDrives(res.data); // Set the state with all drives
+      const res = await axios.get('/drives');
+      setDrives(res.data);
     } catch (error) {
       console.error('Error fetching drives:', error);
     }
@@ -23,26 +23,6 @@ const Drives = () => {
   useEffect(() => {
     fetchDrives();
   }, []);
-  
-
-  // const fetchDrives = async () => {
-  //   try {
-  //     const res = await axios.get('/drives/upcoming'); // Fetch from the 'upcoming' route
-  //     setDrives(res.data);
-  //   } catch (error) {
-  //     console.error('Error fetching drives:', error);
-  //   }
-  // };
-
-  // const fetchDrives = async () => {
-  //   try {
-  //     const res = await axios.get('/drives');
-  //     setDrives(res.data);
-  //   } catch (error) {
-  //     console.error('Error fetching drives:', error);
-  //   }
-  // };
-
 
   const handleAddDrive = async (e) => {
     e.preventDefault();
@@ -73,14 +53,20 @@ const handleSaveEdit = async (id) => {
     console.error('Error updating drive:', error);
   }
 };
-
-
   
   useEffect(() => {
     fetchDrives();
   }, []);
 
   return (
+    <div
+    style={{
+      backgroundImage: `url(${process.env.PUBLIC_URL}/images/VacDrive.webp)`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      minHeight: '100vh',
+    }}
+  >
     <div style={{ padding: '20px' }}>
       <h2>Vaccination Drives</h2>
 
@@ -167,7 +153,8 @@ const handleSaveEdit = async (id) => {
         </ul>
       )}
     </div>
-  );
+    </div>
+);
 };
 
 export default Drives;

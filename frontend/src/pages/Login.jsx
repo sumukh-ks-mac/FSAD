@@ -1,23 +1,31 @@
 import React, { useState } from 'react';
-import { useAuth } from '../AuthContext';  // Import useAuth hook
+import { useAuth } from '../AuthContext';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { login, error } = useAuth();  // Get login and error from AuthContext
-  const navigate = useNavigate();  // To navigate after successful login
+  const { login, error } = useAuth();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    login(username, password);  // Call login function
+    login(username, password);
 
     if (error === '') {
-      navigate('/dashboard');  // Redirect to dashboard on successful login
+      navigate('/dashboard');
     }
   };
 
   return (
+    <div
+    style={{
+      backgroundImage: `url(${process.env.PUBLIC_URL}/images/Student.avif)`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      minHeight: '100vh',
+    }}
+  >
     <div style={{ maxWidth: '400px', margin: '50px auto' }}>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
@@ -66,6 +74,8 @@ const Login = () => {
         </button>
       </form>
     </div>
+    </div>
+
   );
 };
 
