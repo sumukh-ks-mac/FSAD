@@ -37,7 +37,6 @@ A web-based application for school coordinators to manage and monitor upcoming v
 ## **Folder Structure**
 
 pgsql  
-CopyEdit  
 `vaccination-portal/`  
 `│`  
 `├── backend/`  
@@ -76,8 +75,6 @@ Base URL: `http://localhost:5000/api`
 
 ## **MongoDB Model**
 
-js  
-CopyEdit  
 `{`  
   `vaccineName: String,`  
   `driveDate: Date,`  
@@ -90,8 +87,6 @@ CopyEdit
 
 ### **1\. Clone the repository**
 
-bash  
-CopyEdit  
 `git clone https://github.com/yourusername/vaccination-portal.git`  
 `cd vaccination-portal`
 
@@ -99,16 +94,12 @@ CopyEdit
 
 Install MongoDB (if not already installed):
 
-bash  
-CopyEdit  
 `brew tap mongodb/brew`  
 `brew install mongodb-community`  
 `brew services start mongodb/brew/mongodb-community`
 
 ### **3\. Run Backend**
 
-bash  
-CopyEdit  
 `cd backend`  
 `npm install`  
 `npm start`
@@ -119,8 +110,6 @@ CopyEdit
 
 ### **4\. Run Frontend**
 
-bash  
-CopyEdit  
 `cd frontend`  
 `npm install`  
 `npm start`
